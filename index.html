@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moja Strona</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+    }
+    .page {
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      margin: 1rem;
+      cursor: pointer;
+    }
+    .top-button {
+      display: block;
+      margin: 1rem auto;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border: 3px solid black;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <!-- Strona główna -->
+  <div id="home" class="page visible">
+    <h1>Witaj!</h1>
+    <button onclick="showPage('plan')">Plan zajęć</button>
+    <button onclick="showPage('zadania')">Zadania</button>
+  </div>
+
+  <!-- Podstrona Plan zajęć -->
+  <div id="plan" class="page">
+    <button class="top-button" onclick="showPage('home')">Powrót</button>
+    <h1>Plan zajęć</h1>
+    <img src="plan.png" alt="Plan zajęć">
+  </div>
+
+  <!-- Podstrona Zadania -->
+  <div id="zadania" class="page">
+    <button class="top-button" onclick="showPage('home')">Powrót</button>
+    <h1>Zadania</h1>
+    <img src="zadania.png" alt="Zadania">
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('visible');
+      });
+      document.getElementById(pageId).classList.add('visible');
+    }
+  </script>
+</body>
+</html>
